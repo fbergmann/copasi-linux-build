@@ -23,3 +23,5 @@ source ./scripts/variables
 ./scripts/4_checkout_copasi.sh  
 ./scripts/5_build-copasi.sh 
 ```
+
+There is also a deploy script, that tries to use linuxdeployqt to collect dependencies. Note that that script requires an older linux distribution though. 

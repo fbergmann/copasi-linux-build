@@ -5,3 +5,7 @@ env-*
 COPASI
 copasi-dependencies
 *.log
+
+/linuxdeployqt/
+AppRun
+linuxdeployqt*AppImage
