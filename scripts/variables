@@ -1,3 +1,5 @@
+#!/bin/env bash
+
 export QT_VERSION=6.8.2
 export SWIG_VERSION=4.2.1
 export CMAKE_VERSION=3.31.6

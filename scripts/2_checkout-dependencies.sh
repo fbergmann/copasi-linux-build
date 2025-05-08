@@ -1,7 +1,4 @@
-#!/bin/bash
-
-# Prevent interactive prompts
-export DEBIAN_FRONTEND=noninteractive
+#!/bin/env bash
 
 if [ ! -d "copasi-dependencies" ]; then
     git clone https://github.com/copasi/copasi-dependencies.git

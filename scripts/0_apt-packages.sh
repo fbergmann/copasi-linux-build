@@ -1,3 +1,5 @@
+#!/bin/env bash
+
 apt update
 # Prevent interactive prompts
 export DEBIAN_FRONTEND=noninteractive

@@ -1,3 +1,5 @@
+#!/bin/env bash
+
 source ./scripts/variables
 python3 -m venv env-build
 source ./scripts/variables
