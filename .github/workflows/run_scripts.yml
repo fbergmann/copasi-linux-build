@@ -1,0 +1,37 @@
+name: Run Scripts
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v4
+
+      - name: Update System
+        run: ./scripts/0_apt-packages.sh 
+
+      - name: Install dependencies
+        run: |
+          source ./scripts/variables
+          ./scripts/1_install_dependencies.sh
+
+      - name: Checkout COPASI Dependencies and build
+        run: |
+          source ./scripts/variables
+          ./scripts/2_checkout-dependencies.sh  
+          ./scripts/3_build-dependencies.sh  
+
+      - name: Checkout COPASI and Update Version
+        run: |
+          source ./scripts/variables
+          ./scripts/4_checkout_copasi.sh
+
+      - name: Checkout COPASI and Update Version
+        run: |
+          source ./scripts/variables
+          ./scripts/5_build-copasi.sh 
