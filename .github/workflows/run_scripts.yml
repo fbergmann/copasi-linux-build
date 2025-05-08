@@ -13,7 +13,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Update System
-        run: ./scripts/0_apt-packages.sh 
+        run: sudo ./scripts/0_apt-packages.sh 
 
       - name: Install dependencies
         run: |
