@@ -1,0 +1,25 @@
+## Build COPASI
+This project holds a couple of scripts for building COPASI with the graphical user interface. 
+It is based on Qt6. To modify the Versions of dependencies to be used, modify the `variables` file
+in the `./scripts` folder.
+
+## docker
+you could build the whole project in docker, for that just mount the current directory into the image when running: 
+
+```bash
+sudo docker run -it --rm -v `pwd`:/io ubuntu:24.04
+cd /io
+```
+
+## run the build
+First change to the directory where everything ought to be build
+
+```bash
+source ./scripts/variables 
+./scripts/0_apt-packages.sh  
+./scripts/1_install_dependencies.sh  
+./scripts/2_checkout-dependencies.sh  
+./scripts/3_build-dependencies.sh  
+./scripts/4_checkout_copasi.sh  
+./scripts/5_build-copasi.sh 
+```

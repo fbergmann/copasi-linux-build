@@ -1,0 +1,7 @@
+6.8.2
+build-*
+install-*
+env-*
+COPASI
+copasi-dependencies
+*.log

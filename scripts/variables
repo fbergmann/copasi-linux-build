@@ -1,0 +1,17 @@
+export QT_VERSION=6.8.2
+export SWIG_VERSION=4.2.1
+export CMAKE_VERSION=3.31.6
+export COPASI_VERSION=release/Version-4.46
+
+export QTDIR=$PWD/$QT_VERSION/gcc_64
+export Qt6_DIR=$QTDIR/lib/cmake/Qt6/
+export PATH=$QTDIR/bin/:$PATH
+export SELECT_QT=Qt6       
+export CMAKE_BUILD_TYPE=Release
+
+# if `env-build` exists, use it, otherwise create it
+if [ -d "env-build" ]; then
+    source ./env-build/bin/activate
+else
+    echo "run ./scripts/install_dependencies.sh then activate the environment with 'source ./env-build/bin/activate'"
+fi
