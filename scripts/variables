@@ -1,15 +1,25 @@
 #!/bin/env bash
 
-export QT_VERSION=6.8.2
-export SWIG_VERSION=4.2.1
-export CMAKE_VERSION=3.31.6
-export COPASI_VERSION=release/Version-4.46
+export QT_VERSION=${QT_VERSION:-6.8.2}
+export SWIG_VERSION=${SWIG_VERSION:-4.2.1}
+export CMAKE_VERSION=${CMAKE_VERSION:-3.31.6}
+export COPASI_VERSION=${COPASI_VERSION:-release/Version-4.46}
+export CMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE:-Release}
 
-export QTDIR=$PWD/$QT_VERSION/gcc_64
-export Qt6_DIR=$QTDIR/lib/cmake/Qt6/
-export PATH=$QTDIR/bin/:$PATH
-export SELECT_QT=Qt6       
-export CMAKE_BUILD_TYPE=Release
+# if QT_VERSION is not `system`
+if [ "$QT_VERSION" != "system" ]; then
+    echo "Using Qt $QT_VERSION"
+    export QTDIR=$PWD/$QT_VERSION/gcc_64
+    export Qt6_DIR=$QTDIR/lib/cmake/Qt6/
+    export PATH=$QTDIR/bin/:$PATH
+    export SELECT_QT=Qt6           
+else
+    echo "Using system Qt"
+    export QTDIR=/usr/lib/x86_64-linux-gnu/qt6
+    export Qt6_DIR=/usr/lib/x86_64-linux-gnu/cmake/Qt6/
+    export PATH=/usr/bin/:$PATH
+    export SELECT_QT=Qt6
+fi
 
 # if `env-build` exists, use it, otherwise create it
 if [ -d "env-build" ]; then

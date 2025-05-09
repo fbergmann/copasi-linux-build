@@ -25,3 +25,7 @@ source ./scripts/variables
 ```
 
 There is also a deploy script, that tries to use linuxdeployqt to collect dependencies. Note that that script requires an older linux distribution though. 
+
+
+## using system qt6
+if  `QT_VERSION=system`, the Qt6 from the system will be used (and the packages installed by the `0_` script)
